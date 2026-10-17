@@ -1,0 +1,180 @@
+# ====================================================================
+# .GITIGNORE COMPLETO: MULTIPLATAFORMA + FRONTEND (REACT / VITE)
+# ====================================================================
+#
+# GUÍA RÁPIDA: ¿COMPARTIR O NO COMPARTIR?
+# --------------------------------------------------------------------
+# Las reglas dudosas están marcadas con una etiqueta:
+#
+#   [LO MÁS COMÚN: IGNORAR]    -> regla ACTIVA (el caso habitual es no subirlo).
+#                                 Para COMPARTIRLO, comenta la regla (#).
+#   [LO MÁS COMÚN: COMPARTIR]  -> se sube al repo mediante excepciones (!).
+#                                 Para NO compartirlo, comenta las excepciones.
+#   [OPCIONAL: COMENTADA]      -> regla INACTIVA (el caso habitual es que no
+#                                 haga falta). Descomenta si la necesitas.
+#
+# Nota: un patrón sin "/" (ej. .DS_Store) aplica en CUALQUIER subcarpeta.
+#       "/dist/" (barra inicial) aplica solo en la raíz del repo.
+# ====================================================================
+
+
+# --------------------------------------------------------------------
+# 1. SISTEMAS OPERATIVOS
+# --------------------------------------------------------------------
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.Trashes
+VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# [OPCIONAL: COMENTADA] Instaladores de Windows.
+# En un proyecto React/Vite casi nunca aparecen. Si los ignoras en todo el
+# repo y algún día necesitas versionar uno a propósito, Git lo omitirá sin
+# avisar. Descomenta solo si te aparecen por error.
+# *.cab
+# *.msi
+# *.msm
+# *.msp
+
+# Linux
+.directory
+*~
+.fuse_hidden*
+.trash/
+.LocalHistory
+
+
+# --------------------------------------------------------------------
+# 2. EDITORES / IDE
+# --------------------------------------------------------------------
+# [LO MÁS COMÚN: COMPARTIR] Configuración compartida de VS Code.
+# En equipos es habitual subir settings, tareas, debug y extensiones
+# recomendadas para que todos tengan el mismo entorno.
+# Para NO compartirla (trabajo solo o cada quien con su config):
+# comenta las 5 líneas de excepciones (!) y deja solo ".vscode/*".
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/snippets/
+
+# [LO MÁS COMÚN: IGNORAR] Historial local de la extensión Local History.
+.history/
+.vscode-test/
+
+# [LO MÁS COMÚN: IGNORAR] Archivos de workspace de VS Code.
+# Suelen contener rutas locales y preferencias personales.
+# Para COMPARTIRLO (ej. monorepos con varias carpetas): comenta la regla.
+*.code-workspace
+
+# [LO MÁS COMÚN: IGNORAR] JetBrains (WebStorm, IntelliJ).
+# Útil si alguien del equipo usa estos IDEs.
+.idea/
+
+
+# --------------------------------------------------------------------
+# 3. DEPENDENCIAS Y PAQUETES (Node / Frontend)
+# --------------------------------------------------------------------
+node_modules/
+jspm_packages/
+web_modules/
+.pnpm-store/
+
+# Cachés de herramientas
+.npm
+.eslintcache
+.stylelintcache
+.prettiercache
+
+# Yarn moderno (Berry). Si usas npm o pnpm, es inofensivo.
+# Se permiten patches/plugins/releases/versions porque forman parte
+# de la configuración del proyecto.
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+.pnp.*
+
+# IMPORTANTE: NO ignores los lockfiles. Deben versionarse para que todos
+# instalen exactamente las mismas versiones de dependencias:
+#   package-lock.json / yarn.lock / pnpm-lock.yaml
+
+
+# --------------------------------------------------------------------
+# 4. COMPILACIÓN Y PRODUCCIÓN (Vite / React / Bootstrap)
+# --------------------------------------------------------------------
+dist/
+dist-ssr/
+out/
+build/
+.vite/
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+*.tsbuildinfo
+
+# [OPCIONAL: COMENTADA] "*.local" es el patrón de la plantilla de Vite.
+# Ya no hace falta porque ".env.*" (sección 5) cubre los .env locales,
+# y "*.local" ignoraría cualquier archivo que termine en .local.
+# *.local
+
+
+# --------------------------------------------------------------------
+# 5. SEGURIDAD Y VARIABLES DE ENTORNO (¡No subir credenciales!)
+# --------------------------------------------------------------------
+# Ignora TODAS las variantes: .env, .env.local, .env.development,
+# .env.production, .env.test, etc.
+.env
+.env.*
+
+# Excepción: la plantilla SIN secretos sí se comparte, para que el resto
+# del equipo sepa qué variables necesita (ej. VITE_API_URL=).
+!.env.example
+
+# [LO MÁS COMÚN: IGNORAR] Claves privadas y certificados.
+# Ojo: también ignora certificados públicos .pem que a veces sí se
+# versionan. Si es tu caso, comenta la regla o añade una excepción
+# específica (ej. !certs/public.pem).
+*.pem
+*.key
+
+
+# --------------------------------------------------------------------
+# 6. TESTS, LOGS Y CACHÉS
+# --------------------------------------------------------------------
+# Cobertura de tests
+coverage/
+.nyc_output/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+
+# --------------------------------------------------------------------
+# 7. DESPLIEGUE (plataformas de hosting)
+# --------------------------------------------------------------------
+# Carpetas locales que crean los CLI de estas plataformas.
+.vercel/
+.netlify/
